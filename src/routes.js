@@ -1,6 +1,6 @@
-import {createAppContainer} from 'react-navigation';
+import {createAppContainer, create} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-
+import {createDrawerNavigator} from 'react-navigation-drawer';
 import PersonCreate from './pages/Person/Create';
 import PersonDetail from './pages/Person/Detail';
 import PersonEdit from './pages/Person/Edit';
