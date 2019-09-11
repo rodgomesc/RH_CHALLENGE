@@ -1,2 +1,0 @@
-class JobRole < ApplicationRecord
-end
