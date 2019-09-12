@@ -10,6 +10,5 @@ export const ButtonText = styled.Text`
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-
   color: #fff;
 `;
