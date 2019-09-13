@@ -3,9 +3,9 @@ import {AsyncStorage} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import avatar from '../../../assets/images/avatar.png';
+import SearchBar from '../../../components/SearchBar';
 import {
   Container,
-  SearchBar,
   Wrapper,
   PickerWrapper,
   PickerWrapperRow,
@@ -28,7 +28,31 @@ import {
 } from './styles';
 
 export default function PersonList({navigation}) {
-  const [personData, setPersonData] = useState([]);
+  const INITIAL_DATA = [
+    {
+      nome: 'Rodrigo Gomes',
+      nascimento: '04/04/1992',
+      matricula: '1234-99',
+      sexo: 'M',
+      municipioNascimento: 'Quirinópolis',
+      estadoCivil: 'casado',
+      lotacao: 'palmas',
+      cargo: 'Developer',
+    },
+    {
+      nome: 'Manoel Calixto',
+      nascimento: '04/04/1980',
+      matricula: '12j34-99',
+      sexo: 'F',
+      municipioNascimento: 'Ceará',
+      estadoCivil: 'divorciado',
+      lotacao: 'santa helena',
+      cargo: 'faxineiro',
+    },
+  ];
+  const [personData, setPersonData] = useState(INITIAL_DATA);
+
+  const [resultData, setResultData] = useState(INITIAL_DATA);
 
   useEffect(() => {
     async function setData() {
@@ -60,14 +84,29 @@ export default function PersonList({navigation}) {
     }
     async function getData() {
       const data = await AsyncStorage.getItem('data');
-      setPersonData(JSON.parse(data));
+      setPersonData(await JSON.parse(data));
     }
-    setData();
-    getData();
-  });
+    // setData();
+    // getData();
+  }, []);
 
   function handleClick(data) {
     navigation.navigate('PersonDetail', {data});
+  }
+
+  async function handleSearch(text) {
+    const formatedQuery = text.toLowerCase();
+    const data = personData.filter(person => {
+      return (
+        person.nome.toLowerCase() === formatedQuery ||
+        person.matricula.toLowerCase() === formatedQuery
+      );
+    });
+    if (!text) {
+      setResultData(personData);
+    } else {
+      setResultData(data);
+    }
   }
 
   return (
@@ -81,7 +120,11 @@ export default function PersonList({navigation}) {
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}
         />
-        <SearchBar placeholder="Buscar" />
+        <SearchBar
+          placeholder="Pesquise Por Um Nome ou Matricula"
+          onChangeText={handleSearch}
+          icon="search"
+        />
         <Wrapper>
           <PickerWrapper>
             <Picker>
@@ -93,9 +136,7 @@ export default function PersonList({navigation}) {
             <PickerWrapperRow>
               <Picker
                 onValueChange={() => console.log('changed')}
-                mode="dropdown"
-                placeholder="Press to select a region"
-                iosIcon={<Icon name="add" size={20} color="#fff" />}>
+                mode="dropdown">
                 <Picker.Item label="Masculino" value="M" />
                 <Picker.Item label="Feminino" value="F" />
               </Picker>
@@ -114,11 +155,11 @@ export default function PersonList({navigation}) {
             <Switch />
           </SwitchWrapper>
           <ResultWrapper>
-            <ResultCont>10</ResultCont>
+            <ResultCont>{resultData.length}</ResultCont>
             <ResultText>Registros encontrados...</ResultText>
           </ResultWrapper>
           <Persons
-            data={personData}
+            data={resultData}
             keyExtractor={person => String(person.matricula)}
             renderItem={({item}) => (
               <PersonItem onPress={() => handleClick(item)}>

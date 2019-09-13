@@ -9,9 +9,9 @@ export const Container = styled.View`
 export const SearchBar = styled.TextInput`
   position: absolute;
   background: #fff;
-  color: #c4c4c4;
+  font-weight: bold;
   height: 46;
-  width: 382px;
+  width: 342px;
   margin: 30px 15px 15px 15px;
   border-radius: 3px;
   padding-left: 15px;

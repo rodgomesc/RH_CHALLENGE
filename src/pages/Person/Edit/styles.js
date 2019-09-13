@@ -15,6 +15,7 @@ export const Wrapper = styled(Card)`
   border-radius: 4px;
   height: 380;
   width: 380;
+  align-self: center;
 `;
 
 export const RowWrapper = styled.View`
@@ -22,6 +23,15 @@ export const RowWrapper = styled.View`
 `;
 
 export const Error = styled.Text`
-  font-size: 12;
-  color: red;
+  width: 360px;
+  font-size: 14;
+  font-weight: bold;
+  color: #fff;
+  background: #d1243e;
+  margin: 4px;
+  padding: 4px;
+  min-height: 15;
+  border-radius: 3;
+  align-self: center;
+  text-align: center;
 `;

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
-import {Container, Wrapper, RowWrapper, ButtonWrapper, Error} from './styles';
+import {Container, Wrapper, RowWrapper, Error} from './styles';
 
 import LinearExtraHeader from '../../../components/LinearExtraHeader';
 import LinearButton from '../../../components/LinearButton';
@@ -23,10 +23,10 @@ export default function PersonEdit({navigation}) {
   } = navigation.getParam('data');
 
   const schema = Yup.object().shape({
-    nome: Yup.string().required('Campo nome não pode ser vazio'),
-    matricula: Yup.string().required('Campo Matricula não pode ser vazio'),
-    lotacao: Yup.string().required('Campo Lotação não pode ser vazio'),
-    cargo: Yup.string().required('Campo Cargo não pode ser vazio'),
+    nome: Yup.string().required('Campo nome é obrigatório!'),
+    matricula: Yup.string().required('Campo Matricula é obrigatório!'),
+    lotacao: Yup.string().required('Campo Lotação é obrigatório!'),
+    cargo: Yup.string().required('Campo Cargo é obrigatório!'),
   });
 
   function handleSubmit(values) {
@@ -55,10 +55,10 @@ export default function PersonEdit({navigation}) {
         onSubmit={values => handleSubmit(values)}>
         {props => (
           <Wrapper>
-            <Error>{props.errors.nome}</Error>
-            <Error>{props.errors.matricula}</Error>
-            <Error>{props.errors.lotacao}</Error>
-            <Error>{props.errors.cargo}</Error>
+            {props.errors.nome && <Error>{props.errors.nome}</Error>}
+            {props.errors.matricula && <Error>{props.errors.matricula}</Error>}
+            {props.errors.lotacao && <Error>{props.errors.lotacao}</Error>}
+            {props.errors.cargo && <Error>{props.errors.cargo}</Error>}
             <RowWrapper>
               <Input
                 onChangeText={props.handleChange('nome')}
