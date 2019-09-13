@@ -10,6 +10,7 @@ export const Container = styled(Card)`
   margin: 88px 15px 0px;
   padding: 10px 10px 0;
   border-radius: 4px;
+  align-self: center;
 `;
 
 export const ProfilePic = styled.Image`
@@ -54,4 +55,10 @@ export const Separator = styled.View`
   margin: 18px 0 0;
   border-bottom-width: 1;
   border-color: rgb(204, 204, 204);
+`;
+
+export const IconWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  
 `;

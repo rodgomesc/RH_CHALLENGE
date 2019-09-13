@@ -1,4 +1,6 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import {
   Container,
   ProfilePic,
@@ -8,13 +10,20 @@ import {
   Description,
   Row,
   Separator,
+  IconWrapper,
 } from './styles';
 
 import LinearExtraHeader from '../../../components/LinearExtraHeader';
 import profileAvatar from '../../../assets/images/gendalf.jpg';
 
 export default function PersonDetail({navigation}) {
-  function handleClick() {
+  function handleAdd() {
+    navigation.navigate('PersonCreate');
+  }
+  function handleEdit() {
+    navigation.navigate('PersonEdit');
+  }
+  function handleDelete() {
     navigation.navigate('PersonList');
   }
   return (
@@ -67,6 +76,26 @@ export default function PersonDetail({navigation}) {
             </Info>
           </Row>
         </Profile>
+        <IconWrapper>
+          <Icon
+            name="add"
+            color="#6EB7F8"
+            size={36}
+            onPress={() => handleAdd()}
+          />
+          <Icon
+            name="delete"
+            color="#6EB7F8"
+            size={36}
+            onPress={() => handleDelete()}
+          />
+          <Icon
+            name="edit"
+            color="#6EB7F8"
+            size={36}
+            onPress={() => handleEdit()}
+          />
+        </IconWrapper>
       </Container>
     </>
   );

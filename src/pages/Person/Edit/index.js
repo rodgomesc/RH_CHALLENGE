@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Wrapper, RowWrapper, ButtonWrapper} from './styles';
+import { Container, Wrapper, RowWrapper, ButtonWrapper } from './styles';
 
 import LinearExtraHeader from '../../../components/LinearExtraHeader';
 import LinearButton from '../../../components/LinearButton';
@@ -7,7 +7,8 @@ import Input from '../../../components/Input';
 import DatePicker from '../../../components/DatePicker';
 import Picker from '../../../components/Picker';
 
-export default function PersonEdit({navigation}) {
+
+export default function PersonEdit({ navigation }) {
   function handleClick() {
     navigation.navigate('PersonList');
   }

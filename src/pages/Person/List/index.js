@@ -26,7 +26,7 @@ import {
   Separator,
 } from './styles';
 
-export default function PersonList() {
+export default function PersonList({navigation}) {
   const personData = [
     {
       id: '1',
@@ -64,7 +64,10 @@ export default function PersonList() {
       sexo: 'M',
     },
   ];
-
+  function handleClick(){
+    navigation.navigate('PersonDetail');
+  }
+  
   return (
     <>
       <Container>
@@ -116,7 +119,7 @@ export default function PersonList() {
             data={personData}
             keyExtractor={person => String(person.id)}
             renderItem={({item}) => (
-              <PersonItem>
+              <PersonItem onPress={handleClick}>
                 <PersonAvatar source={avatar} />
 
                 <PersonInfoLeft>

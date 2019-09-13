@@ -15,6 +15,7 @@ export const SearchBar = styled.TextInput`
   margin: 30px 15px 15px 15px;
   border-radius: 3px;
   padding-left: 15px;
+  align-self: center;
 `;
 
 export const Wrapper = styled(Card)`
@@ -80,12 +81,13 @@ export const Persons = styled.FlatList.attrs({
   margin-top: 10px;
 `;
 
-export const PersonItem = styled(Card)`
+export const PersonItem = styled.TouchableOpacity`
   flex-direction: row;
   height: 70;
   margin: 10px 0 2px;
   background: #f2f2f2;
   border-radius: 4;
+  elevation: 3;
 `;
 
 export const PersonAvatar = styled.Image`
