@@ -17,11 +17,13 @@ import LinearExtraHeader from '../../../components/LinearExtraHeader';
 import profileAvatar from '../../../assets/images/gendalf.jpg';
 
 export default function PersonDetail({navigation}) {
+  const data = navigation.getParam('data');
+
   function handleAdd() {
     navigation.navigate('PersonCreate');
   }
   function handleEdit() {
-    navigation.navigate('PersonEdit');
+    navigation.navigate('PersonEdit', {data});
   }
   function handleDelete() {
     navigation.navigate('PersonList');
@@ -35,44 +37,44 @@ export default function PersonDetail({navigation}) {
           <Row first>
             <Info>
               <Title>Matricula</Title>
-              <Description>9999999-9998</Description>
+              <Description>{data.matricula}</Description>
             </Info>
             <Info>
               <Title>Nome</Title>
-              <Description>Rodrigo Gomes</Description>
+              <Description>{data.nome}</Description>
             </Info>
           </Row>
           <Separator />
           <Row>
             <Info>
               <Title>Nascimento</Title>
-              <Description>04/04/1992</Description>
+              <Description>{data.nascimento}</Description>
             </Info>
             <Info>
               <Title>Município Nasc</Title>
-              <Description>9999999-9998</Description>
+              <Description>{data.matricula}</Description>
             </Info>
           </Row>
           <Separator />
           <Row>
             <Info>
               <Title>Estado Civil</Title>
-              <Description>04/04/1992</Description>
+              <Description>{data.estadoCivil}</Description>
             </Info>
             <Info>
               <Title>Sexo</Title>
-              <Description>9999999-9998</Description>
+              <Description>{data.sexo}</Description>
             </Info>
           </Row>
           <Separator />
           <Row>
             <Info>
               <Title>Lotação</Title>
-              <Description>04/04/1992</Description>
+              <Description>{data.lotacao}</Description>
             </Info>
             <Info>
               <Title>Cargo</Title>
-              <Description>9999999-9998</Description>
+              <Description>{data.cargo}</Description>
             </Info>
           </Row>
         </Profile>

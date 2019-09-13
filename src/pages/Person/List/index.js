@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {AsyncStorage} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import avatar from '../../../assets/images/avatar.png';
@@ -27,47 +28,48 @@ import {
 } from './styles';
 
 export default function PersonList({navigation}) {
-  const personData = [
-    {
-      id: '1',
-      name: 'Rodrigo Gomes ',
-      nasc: '04/04/1992',
-      matricula: '1234-99',
-      sexo: 'M',
-    },
-    {
-      id: '2',
-      name: 'Manoel Calixto',
-      nasc: '04/04/1992',
-      matricula: '1234-99',
-      sexo: 'M',
-    },
-    {
-      id: '3',
-      name: 'Manoel Calixto',
-      nasc: '04/04/1992',
-      matricula: '1234-99',
-      sexo: 'M',
-    },
-    {
-      id: '4',
-      name: 'Manoel Calixto',
-      nasc: '04/04/1992',
-      matricula: '1234-99',
-      sexo: 'M',
-    },
-    {
-      id: '5',
-      name: 'Manoel Calixto',
-      nasc: '04/04/1992',
-      matricula: '1234-99',
-      sexo: 'M',
-    },
-  ];
-  function handleClick(){
-    navigation.navigate('PersonDetail');
+  const [personData, setPersonData] = useState([]);
+
+  useEffect(() => {
+    async function setData() {
+      await AsyncStorage.setItem(
+        'data',
+        JSON.stringify([
+          {
+            nome: 'Rodrigo Gomes',
+            nascimento: '04/04/1992',
+            matricula: '1234-99',
+            sexo: 'M',
+            municipioNascimento: 'Quirinópolis',
+            estadoCivil: 'casado',
+            lotacao: 'palmas',
+            cargo: 'Developer',
+          },
+          {
+            nome: 'Manoel Calixto',
+            nascimento: '04/04/1980',
+            matricula: '12j34-99',
+            sexo: 'F',
+            municipioNascimento: 'Ceará',
+            estadoCivil: 'divorciado',
+            lotacao: 'santa helena',
+            cargo: 'faxineiro',
+          },
+        ]),
+      );
+    }
+    async function getData() {
+      const data = await AsyncStorage.getItem('data');
+      setPersonData(JSON.parse(data));
+    }
+    setData();
+    getData();
+  });
+
+  function handleClick(data) {
+    navigation.navigate('PersonDetail', {data});
   }
-  
+
   return (
     <>
       <Container>
@@ -117,13 +119,12 @@ export default function PersonList({navigation}) {
           </ResultWrapper>
           <Persons
             data={personData}
-            keyExtractor={person => String(person.id)}
+            keyExtractor={person => String(person.matricula)}
             renderItem={({item}) => (
-              <PersonItem onPress={handleClick}>
+              <PersonItem onPress={() => handleClick(item)}>
                 <PersonAvatar source={avatar} />
-
                 <PersonInfoLeft>
-                  <PersonTitle>{item.name}</PersonTitle>
+                  <PersonTitle>{item.nome}</PersonTitle>
                   <PersonBlock>
                     <PersonTitle>Matricula:</PersonTitle>
                     <PersonData>{item.matricula}</PersonData>
@@ -132,7 +133,7 @@ export default function PersonList({navigation}) {
                 <PersonInfoRight>
                   <PersonBlock>
                     <PersonTitle>Nasc:</PersonTitle>
-                    <PersonData>{item.nasc}</PersonData>
+                    <PersonData>{item.nascimento}</PersonData>
                   </PersonBlock>
                   <PersonBlock>
                     <PersonTitle>Sexo:</PersonTitle>

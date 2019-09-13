@@ -17,10 +17,11 @@ export const Wrapper = styled(Card)`
   width: 380;
 `;
 
-export const ButtonWrapper = styled.View`
-  margin-top: 10;
-`;
-
 export const RowWrapper = styled.View`
   flex-direction: row;
+`;
+
+export const Error = styled.Text`
+  font-size: 12;
+  color: red;
 `;

@@ -11,7 +11,6 @@ export const Container = styled(Card)`
 `;
 
 export const CDate = styled(DatePicker).attrs(props => ({
-  defaultDate: new Date(),
   minimumDate: new Date(1950, 1, 1),
   maximumDate: new Date(2100, 12, 31),
   locale: 'pt',

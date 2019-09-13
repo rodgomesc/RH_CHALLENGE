@@ -1,6 +1,6 @@
 import React from 'react';
-import {Container, CPicker} from './styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Container, CPicker} from './styles';
 
 export default function CustomPicker({icon, ...data}) {
   return (
