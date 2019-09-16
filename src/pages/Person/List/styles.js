@@ -1,5 +1,8 @@
 import styled from 'styled-components/native';
-import {Card, Switch as baseSwitch, Picker as BasePicker} from 'native-base';
+import {Card, Picker as BasePicker} from 'native-base';
+import {Switch as CSwitch} from 'react-native';
+
+import {BallIndicator} from 'react-native-indicators';
 
 export const Container = styled.View`
   flex: 1;
@@ -25,22 +28,26 @@ export const Wrapper = styled(Card)`
   padding: 10px 10px 0;
   top: -100px;
   border-radius: 4px;
-  height: 500;
+  height: 540;
 `;
 
 export const SwitchWrapper = styled.View`
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 8;
+  margin-right: 5;
 `;
 
-export const Switch = styled(baseSwitch)``;
+export const Switch = styled(CSwitch).attrs({
+  thumbColor: '#95ADE8',
+})``;
 
 export const SwitchText = styled.Text`
   font-family: 'Roboto';
   font-weight: bold;
-  font-size: 18;
+  font-size: 14;
   color: #747474;
+  text-transform: uppercase;
 `;
 
 export const Picker = styled(BasePicker)`
@@ -83,7 +90,7 @@ export const Persons = styled.FlatList.attrs({
 
 export const PersonItem = styled.TouchableOpacity`
   flex-direction: row;
-  height: 70;
+  height: 90;
   margin: 10px 0 2px;
   background: #f2f2f2;
   border-radius: 4;
@@ -143,3 +150,7 @@ export const Separator = styled.View`
   border-bottom-width: 1;
   border-color: #000;
 `;
+
+export const ActivityIndicator = styled(BallIndicator).attrs({
+  color: '#7b7b7b',
+})``;

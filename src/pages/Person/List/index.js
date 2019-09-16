@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {AsyncStorage} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import database from '../../../config/firebase';
 import avatar from '../../../assets/images/avatar.png';
 import SearchBar from '../../../components/SearchBar';
+
 import {
   Container,
   Wrapper,
@@ -25,73 +26,61 @@ import {
   PersonBlock,
   Picker,
   Separator,
+  ActivityIndicator,
 } from './styles';
 
 export default function PersonList({navigation}) {
-  const INITIAL_DATA = [
-    {
-      nome: 'Rodrigo Gomes',
-      nascimento: '04/04/1992',
-      matricula: '1234-99',
-      sexo: 'M',
-      municipioNascimento: 'Quirinópolis',
-      estadoCivil: 'casado',
-      lotacao: 'palmas',
-      cargo: 'Developer',
-    },
-    {
-      nome: 'Manoel Calixto',
-      nascimento: '04/04/1980',
-      matricula: '12j34-99',
-      sexo: 'F',
-      municipioNascimento: 'Ceará',
-      estadoCivil: 'divorciado',
-      lotacao: 'santa helena',
-      cargo: 'faxineiro',
-    },
-  ];
-  const [personData, setPersonData] = useState(INITIAL_DATA);
-
-  const [resultData, setResultData] = useState(INITIAL_DATA);
+  const [personData, setPersonData] = useState([]);
+  const [resultData, setResultData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState({
+    cargo: '',
+    sexo: '',
+    lotacao: '',
+    estadoNascimento: '',
+  });
+  const [isToggled, setIsToggled] = useState(false);
 
   useEffect(() => {
-    async function setData() {
-      await AsyncStorage.setItem(
-        'data',
-        JSON.stringify([
-          {
-            nome: 'Rodrigo Gomes',
-            nascimento: '04/04/1992',
-            matricula: '1234-99',
-            sexo: 'M',
-            municipioNascimento: 'Quirinópolis',
-            estadoCivil: 'casado',
-            lotacao: 'palmas',
-            cargo: 'Developer',
-          },
-          {
-            nome: 'Manoel Calixto',
-            nascimento: '04/04/1980',
-            matricula: '12j34-99',
-            sexo: 'F',
-            municipioNascimento: 'Ceará',
-            estadoCivil: 'divorciado',
-            lotacao: 'santa helena',
-            cargo: 'faxineiro',
-          },
-        ]),
-      );
+    async function fetchFromDb() {
+      // map each item to array
+
+      database.ref('person').on('value', snapshot => {
+        const items = [];
+        snapshot.forEach(child => {
+          items.push(child.val());
+        });
+        setPersonData(items);
+        setResultData(items);
+        setLoading(false);
+      });
     }
-    async function getData() {
-      const data = await AsyncStorage.getItem('data');
-      setPersonData(await JSON.parse(data));
+
+    async function searchByFilter() {
+      if (isToggled) {
+        const data = personData.filter(person => {
+          return (
+            person.cargo === filters.cargo &&
+            person.sexo === filters.sexo &&
+            person.lotacao === filters.lotacao &&
+            person.estadoNascimento === filters.estadoNascimento
+          );
+        });
+        setResultData(data);
+      }
     }
-    // setData();
-    // getData();
-  }, []);
+
+    fetchFromDb();
+    searchByFilter();
+  }, [filters, isToggled]);
 
   function handleClick(data) {
     navigation.navigate('PersonDetail', {data});
+  }
+
+  // handle dropdown filters
+  async function handleFilter() {
+    setIsToggled(!isToggled);
   }
 
   async function handleSearch(text) {
@@ -121,69 +110,110 @@ export default function PersonList({navigation}) {
           end={{x: 1, y: 0}}
         />
         <SearchBar
-          placeholder="Pesquise Por Um Nome ou Matricula"
+          placeholder="Pesquise por nome ou matricula..."
           onChangeText={handleSearch}
           icon="search"
         />
+
         <Wrapper>
           <PickerWrapper>
-            <Picker>
-              <Picker.Item label="Masculino" value="M" />
+            <PickerWrapperRow>
+              <Picker
+                onValueChange={(itemValue, itemIndex) => {
+                  setFilters({...filters, cargo: itemValue});
+                }}
+                selectedValue={filters.cargo}
+                mode="dropdown">
+                {personData.map(person => (
+                  <Picker.Item label={person.cargo} value={person.cargo} />
+                ))}
+              </Picker>
+              <Picker
+                onValueChange={(itemValue, itemIndex) => {
+                  setFilters({...filters, lotacao: itemValue});
+                }}
+                selectedValue={filters.lotacao}
+                mode="dropdown">
+                {personData.map(person => (
+                  <Picker.Item label={person.lotacao} value={person.lotacao} />
+                ))}
+              </Picker>
+            </PickerWrapperRow>
 
-              <Picker.Item label="Feminino" value="F" />
-            </Picker>
             <Separator />
             <PickerWrapperRow>
               <Picker
-                onValueChange={() => console.log('changed')}
+                onValueChange={(itemValue, itemIndex) => {
+                  setFilters({...filters, sexo: itemValue});
+                }}
+                selectedValue={filters.sexo}
                 mode="dropdown">
-                <Picker.Item label="Masculino" value="M" />
-                <Picker.Item label="Feminino" value="F" />
+                {personData.map(person => (
+                  <Picker.Item label={person.sexo} value={person.sexo} />
+                ))}
               </Picker>
-
               <Picker
-                onValueChange={() => console.log('changed')}
-                mode="dialog">
-                <Picker.Item label="Developer" value="Developer" />
-                <Picker.Item label="Dba" value="Dba" />
+                onValueChange={(itemValue, itemIndex) => {
+                  setFilters({...filters, estadoNascimento: itemValue});
+                }}
+                selectedValue={filters.estadoNascimento}
+                mode="dropdown">
+                {personData.map(person => (
+                  <Picker.Item
+                    label={person.estadoNascimento}
+                    value={person.estadoNascimento}
+                  />
+                ))}
               </Picker>
             </PickerWrapperRow>
             <Separator />
           </PickerWrapper>
           <SwitchWrapper>
             <SwitchText>Filtrar</SwitchText>
-            <Switch />
+            <Switch onValueChange={handleFilter} value={isToggled} />
           </SwitchWrapper>
           <ResultWrapper>
             <ResultCont>{resultData.length}</ResultCont>
             <ResultText>Registros encontrados...</ResultText>
           </ResultWrapper>
-          <Persons
-            data={resultData}
-            keyExtractor={person => String(person.matricula)}
-            renderItem={({item}) => (
-              <PersonItem onPress={() => handleClick(item)}>
-                <PersonAvatar source={avatar} />
-                <PersonInfoLeft>
-                  <PersonTitle>{item.nome}</PersonTitle>
-                  <PersonBlock>
-                    <PersonTitle>Matricula:</PersonTitle>
-                    <PersonData>{item.matricula}</PersonData>
-                  </PersonBlock>
-                </PersonInfoLeft>
-                <PersonInfoRight>
-                  <PersonBlock>
-                    <PersonTitle>Nasc:</PersonTitle>
-                    <PersonData>{item.nascimento}</PersonData>
-                  </PersonBlock>
-                  <PersonBlock>
-                    <PersonTitle>Sexo:</PersonTitle>
-                    <PersonData>{item.sexo}</PersonData>
-                  </PersonBlock>
-                </PersonInfoRight>
-              </PersonItem>
-            )}
-          />
+          {loading ? (
+            <ActivityIndicator />
+          ) : (
+            <Persons
+              data={resultData}
+              keyExtractor={person => String(person.matricula)}
+              renderItem={({item}) => (
+                <PersonItem onPress={() => handleClick(item)}>
+                  <PersonAvatar source={avatar} />
+                  <PersonInfoLeft>
+                    <PersonTitle>{item.nome}</PersonTitle>
+                    <PersonBlock>
+                      <PersonTitle>Matricula:</PersonTitle>
+                      <PersonData>{item.matricula}</PersonData>
+                    </PersonBlock>
+                    <PersonBlock>
+                      <PersonTitle>Lotação:</PersonTitle>
+                      <PersonData>{item.lotacao}</PersonData>
+                    </PersonBlock>
+                  </PersonInfoLeft>
+                  <PersonInfoRight>
+                    <PersonBlock>
+                      <PersonTitle>Nasc:</PersonTitle>
+                      <PersonData>{item.nascimento}</PersonData>
+                    </PersonBlock>
+                    <PersonBlock>
+                      <PersonTitle>Sexo:</PersonTitle>
+                      <PersonData>{item.sexo}</PersonData>
+                    </PersonBlock>
+                    <PersonBlock>
+                      <PersonTitle>Cargo:</PersonTitle>
+                      <PersonData>{item.cargo}</PersonData>
+                    </PersonBlock>
+                  </PersonInfoRight>
+                </PersonItem>
+              )}
+            />
+          )}
         </Wrapper>
       </Container>
     </>
