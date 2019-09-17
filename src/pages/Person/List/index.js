@@ -125,7 +125,11 @@ export default function PersonList({navigation}) {
                 selectedValue={filters.cargo}
                 mode="dropdown">
                 {personData.map(person => (
-                  <Picker.Item label={person.cargo} value={person.cargo} />
+                  <Picker.Item
+                    key={person.matricula}
+                    label={person.cargo}
+                    value={person.cargo}
+                  />
                 ))}
               </Picker>
               <Picker
@@ -135,7 +139,11 @@ export default function PersonList({navigation}) {
                 selectedValue={filters.lotacao}
                 mode="dropdown">
                 {personData.map(person => (
-                  <Picker.Item label={person.lotacao} value={person.lotacao} />
+                  <Picker.Item
+                    key={person.matricula}
+                    label={person.lotacao}
+                    value={person.lotacao}
+                  />
                 ))}
               </Picker>
             </PickerWrapperRow>
@@ -149,7 +157,11 @@ export default function PersonList({navigation}) {
                 selectedValue={filters.sexo}
                 mode="dropdown">
                 {personData.map(person => (
-                  <Picker.Item label={person.sexo} value={person.sexo} />
+                  <Picker.Item
+                    key={person.matricula}
+                    label={person.sexo}
+                    value={person.sexo}
+                  />
                 ))}
               </Picker>
               <Picker
@@ -160,6 +172,7 @@ export default function PersonList({navigation}) {
                 mode="dropdown">
                 {personData.map(person => (
                   <Picker.Item
+                    key={person.matricula}
                     label={person.estadoNascimento}
                     value={person.estadoNascimento}
                   />
