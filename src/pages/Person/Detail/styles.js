@@ -4,7 +4,7 @@ import {Card} from 'native-base';
 export const Container = styled(Card)`
   position: absolute;
   width: 380;
-  height: 500;
+  height: 540;
   flex-direction: column;
   background: #fff;
   margin: 88px 15px 0px;

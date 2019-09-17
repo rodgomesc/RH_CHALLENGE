@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {ToastAndroid as toast, Alert, KeyboardAvoidingView} from 'react-native';
-import fieldsValidate from '../../../utils/validation';
+import {fieldsValidate, validateCargoLotacao} from '../../../utils/validation';
 import {Container, Wrapper, RowWrapper, Error, ButtonContainer} from './styles';
 
 import LinearExtraHeader from '../../../components/LinearExtraHeader';
@@ -43,11 +43,12 @@ export default function PersonCreate({navigation}) {
 
   async function handleSubmit(values) {
     const ValidationMessages = fieldsValidate(resultData, values);
-    console.tron.log(values);
-    if (ValidationMessages.length > 0) {
-      console.tron.log('caiu no if');
-      console.tron.log(ValidationMessages);
+    const validateCL = validateCargoLotacao(resultData, values);
+    if (ValidationMessages.length > 0 || validateCL.length > 0) {
       ValidationMessages.forEach(message => {
+        Alert.alert('AVISO', message);
+      });
+      validateCL.forEach(message => {
         Alert.alert('AVISO', message);
       });
     } else {

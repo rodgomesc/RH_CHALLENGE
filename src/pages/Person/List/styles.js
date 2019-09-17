@@ -28,7 +28,7 @@ export const Wrapper = styled(Card)`
   padding: 10px 10px 0;
   top: -100px;
   border-radius: 4px;
-  height: 540;
+  height: 580;
 `;
 
 export const SwitchWrapper = styled.View`

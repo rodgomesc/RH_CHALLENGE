@@ -1,4 +1,4 @@
-export default function fieldsValidate(resultData, fields) {
+export function fieldsValidate(resultData, fields) {
   const data = [];
   resultData.forEach(person => {
     if (person.matricula === fields.matricula) {
@@ -15,5 +15,18 @@ export default function fieldsValidate(resultData, fields) {
     }
   });
 
+  return data;
+}
+
+export function validateCargoLotacao(resultData, fields) {
+  const data = [];
+  resultData.forEach(person => {
+    if (
+      person.cargo.toLowerCase() === fields.cargo.toLowerCase() &&
+      person.lotacao.toLowerCase() === fields.lotacao.toLowerCase()
+    )
+      data.push('Já existe um registro com o mesmo cargo nessa lotacão');
+  });
+  console.tron.log(data);
   return data;
 }
