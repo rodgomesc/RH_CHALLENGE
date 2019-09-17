@@ -87,7 +87,10 @@ export default function PersonList({navigation}) {
   async function handleSearch(text) {
     const formatedQuery = text.toLowerCase();
     const data = personData.filter(person => {
-      return person.nome.toLowerCase().indexOf(formatedQuery) !== -1;
+      if (isNaN(formatedQuery)) {
+        return person.nome.toLowerCase().indexOf(formatedQuery) !== -1;
+      }
+      return person.matricula.toLowerCase().indexOf(formatedQuery) !== -1;
     });
     if (!text) {
       setResultData(personData);

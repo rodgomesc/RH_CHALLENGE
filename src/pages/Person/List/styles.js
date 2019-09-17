@@ -26,7 +26,7 @@ export const Wrapper = styled(Card)`
   background: #fff;
   margin: 15px;
   padding: 10px 10px 0;
-  top: -100px;
+  top: -115px;
   border-radius: 4px;
   height: 580;
 `;

@@ -42,13 +42,14 @@ export default function PersonCreate({navigation}) {
   });
 
   async function handleSubmit(values) {
-    const ValidationMessages = fieldsValidate(resultData, values);
-    const validateCL = validateCargoLotacao(resultData, values);
-    if (ValidationMessages.length > 0 || validateCL.length > 0) {
-      ValidationMessages.forEach(message => {
+    if (
+      fieldsValidate(resultData, values).length > 0 ||
+      validateCargoLotacao(resultData, values).length > 0
+    ) {
+      fieldsValidate(resultData, values).forEach(message => {
         Alert.alert('AVISO', message);
       });
-      validateCL.forEach(message => {
+      validateCargoLotacao(resultData, values).length.forEach(message => {
         Alert.alert('AVISO', message);
       });
     } else {

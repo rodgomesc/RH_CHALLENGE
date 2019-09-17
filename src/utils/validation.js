@@ -27,6 +27,5 @@ export function validateCargoLotacao(resultData, fields) {
     )
       data.push('Já existe um registro com o mesmo cargo nessa lotacão');
   });
-  console.tron.log(data);
   return data;
 }

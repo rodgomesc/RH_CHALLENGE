@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "878758723567",
+    "firebase_url": "https://rh-challenge.firebaseio.com",
+    "project_id": "rh-challenge",
+    "storage_bucket": "rh-challenge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878758723567:android:e100751bae45cc313a401a",
+        "android_client_info": {
+          "package_name": "com.challenge_siedos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878758723567-3rtcuf8gjcn9ah4tgmcks570q3jh3c1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.challenge_siedos",
+            "certificate_hash": "a77f7e4e23c23bcbdfa6f7b8e4c2bff0561ab86d"
+          }
+        },
+        {
+          "client_id": "878758723567-k9raelc49nq4tfqkr512fo0a9sjpc25a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.challenge_siedos",
+            "certificate_hash": "6b638e5f3e80d4f469f53d80ce8a811be6ad43cd"
+          }
+        },
+        {
+          "client_id": "878758723567-licegub1mg05ear3ajaedspld1s94ncv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGxe9MwgHdmJbF7wekF2jlirdZjgodO1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878758723567-licegub1mg05ear3ajaedspld1s94ncv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
