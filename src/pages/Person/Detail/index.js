@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import {ToastAndroid as toast} from 'react-native';
+import database from '../../../config/firebase';
 import {
   Container,
   ProfilePic,
@@ -25,8 +26,15 @@ export default function PersonDetail({navigation}) {
   function handleEdit() {
     navigation.navigate('PersonEdit', {data});
   }
-  function handleDelete() {
-    navigation.navigate('PersonList');
+  async function handleDelete() {
+    await database
+      .ref('person')
+      .child(data.matricula)
+      .remove();
+
+    // FIXME: app crashes when redirect to PersonList
+    toast.show(`Registo de Matricula ${data.matricula} deletado!`, toast.LONG);
+    setTimeout(() => navigation.navigate('PersonList'), 1000);
   }
   return (
     <>
@@ -52,7 +60,7 @@ export default function PersonDetail({navigation}) {
             </Info>
             <Info>
               <Title>Município Nasc</Title>
-              <Description>{data.matricula}</Description>
+              <Description>{data.municipioNascimento}</Description>
             </Info>
           </Row>
           <Separator />
@@ -89,7 +97,7 @@ export default function PersonDetail({navigation}) {
             name="delete"
             color="#6EB7F8"
             size={36}
-            onPress={() => handleDelete()}
+            onPress={handleDelete}
           />
           <Icon
             name="edit"
