@@ -96,8 +96,10 @@ export default function PersonCreate({navigation}) {
           email: '',
         }}>
         {props => (
-          <Wrapper>
-            <KeyboardAvoidingView behavior="padding">
+          <KeyboardAvoidingView
+            keyboardVerticalOffset={-200}
+            behavior="padding">
+            <Wrapper>
               {props.errors.nome && <Error>{props.errors.nome}</Error>}
               {props.errors.matricula && (
                 <Error>{props.errors.matricula}</Error>
@@ -212,8 +214,8 @@ export default function PersonCreate({navigation}) {
                   title="SALVAR"
                 />
               </ButtonContainer>
-            </KeyboardAvoidingView>
-          </Wrapper>
+            </Wrapper>
+          </KeyboardAvoidingView>
         )}
       </Formik>
     </>

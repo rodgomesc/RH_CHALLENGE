@@ -6,14 +6,11 @@ export const Container = styled.View`
 `;
 
 export const Wrapper = styled.ScrollView`
-  position: absolute;
   flex-direction: column;
   background: #fff;
   margin: 20px 15px 0;
   padding: 10px 10px 0;
   border-radius: 4px;
-  height: 540;
-  width: 380;
   align-self: center;
 `;
 

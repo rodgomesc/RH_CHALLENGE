@@ -13,7 +13,6 @@ import {
   PickerWrapperRow,
   Switch,
   SwitchWrapper,
-  SwitchText,
   ResultText,
   ResultCont,
   ResultWrapper,
@@ -87,17 +86,10 @@ export default function PersonList({navigation}) {
   async function handleSearch(text) {
     const formatedQuery = text.toLowerCase();
     const data = personData.filter(person => {
-<<<<<<< HEAD
       if (isNaN(formatedQuery)) {
         return person.nome.toLowerCase().indexOf(formatedQuery) !== -1;
       }
       return person.matricula.toLowerCase().indexOf(formatedQuery) !== -1;
-=======
-      return (
-        person.nome.toLowerCase() === formatedQuery ||
-        person.matricula.toLowerCase() === formatedQuery
-      );
->>>>>>> parent of 58d7f43... search field improvements
     });
     if (!text) {
       setResultData(personData);

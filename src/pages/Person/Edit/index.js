@@ -3,6 +3,7 @@ import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {ToastAndroid as toast, KeyboardAvoidingView} from 'react-native';
 
+import {red} from 'ansi-colors';
 import {Container, Wrapper, RowWrapper, Error, ButtonContainer} from './styles';
 
 import LinearExtraHeader from '../../../components/LinearExtraHeader';
@@ -83,8 +84,10 @@ export default function PersonEdit({navigation}) {
         validationSchema={schema}
         onSubmit={values => handleSubmit(values)}>
         {props => (
-          <Wrapper>
-            <KeyboardAvoidingView behavior="padding">
+          <KeyboardAvoidingView
+            keyboardVerticalOffset={-200}
+            behavior="padding">
+            <Wrapper>
               {props.errors.nome && <Error>{props.errors.nome}</Error>}
               {props.errors.matricula && (
                 <Error>{props.errors.matricula}</Error>
@@ -199,8 +202,8 @@ export default function PersonEdit({navigation}) {
                   title="SALVAR"
                 />
               </ButtonContainer>
-            </KeyboardAvoidingView>
-          </Wrapper>
+            </Wrapper>
+          </KeyboardAvoidingView>
         )}
       </Formik>
     </>
