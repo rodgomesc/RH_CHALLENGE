@@ -19,3 +19,8 @@ export const Input = styled.TextInput.attrs({
   color: #aaa;
   font-family: 'Roboto';
 `;
+
+export const CText = styled.Text`
+  color: #8c8c8c;
+  margin-left: 2px;
+`;

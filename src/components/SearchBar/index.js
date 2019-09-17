@@ -5,7 +5,7 @@ import {Container, Input} from './styles';
 export default function CustomSearchBar({icon, ...rest}) {
   return (
     <Container>
-      <Icon name={icon} size={20} color="rgba(0,0,0,0.6)" />
+      <Icon name={icon} size={28} color="rgba(0,0,0,0.6)" />
       <Input {...rest} />
     </Container>
   );
