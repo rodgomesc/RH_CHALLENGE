@@ -33,7 +33,7 @@ export const Wrapper = styled(Card)`
 
 export const SwitchWrapper = styled.View`
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin-top: 8;
   margin-right: 5;
 `;

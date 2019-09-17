@@ -1,19 +1,18 @@
 import styled from 'styled-components/native';
-import {Card} from 'native-base';
 
 export const Container = styled.View`
   flex: 1;
   background: #eee;
 `;
 
-export const Wrapper = styled(Card)`
+export const Wrapper = styled.ScrollView`
   position: absolute;
   flex-direction: column;
   background: #fff;
-  margin: 5px 15px 0;
+  margin: 20px 15px 0;
   padding: 10px 10px 0;
   border-radius: 4px;
-  height: 380;
+  height: 540;
   width: 380;
   align-self: center;
 `;
@@ -34,4 +33,8 @@ export const Error = styled.Text`
   border-radius: 3;
   align-self: center;
   text-align: center;
+`;
+
+export const ButtonContainer = styled.View`
+  margin-bottom: 15px;
 `;

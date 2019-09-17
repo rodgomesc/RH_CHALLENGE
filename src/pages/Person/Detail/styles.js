@@ -60,5 +60,7 @@ export const Separator = styled.View`
 export const IconWrapper = styled.View`
   flex-direction: row;
   justify-content: space-around;
-  
+`;
+export const ButtonContainer = styled.View`
+  margin-bottom: 15px;
 `;

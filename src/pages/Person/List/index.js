@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import database from '../../../config/firebase';
 import avatar from '../../../assets/images/avatar.png';
 import SearchBar from '../../../components/SearchBar';
@@ -156,13 +157,8 @@ export default function PersonList({navigation}) {
                 }}
                 selectedValue={filters.sexo}
                 mode="dropdown">
-                {personData.map(person => (
-                  <Picker.Item
-                    key={person.matricula}
-                    label={person.sexo}
-                    value={person.sexo}
-                  />
-                ))}
+                <Picker.Item label="Masculino" value="M" />
+                <Picker.Item label="Feminino" value="F" />
               </Picker>
               <Picker
                 onValueChange={(itemValue, itemIndex) => {
@@ -182,7 +178,13 @@ export default function PersonList({navigation}) {
             <Separator />
           </PickerWrapper>
           <SwitchWrapper>
-            <SwitchText>Filtrar</SwitchText>
+            <Icon
+              name="person-add"
+              color="#95ADE8"
+              size={36}
+              onPress={() => navigation.navigate('PersonCreate')}
+            />
+
             <Switch onValueChange={handleFilter} value={isToggled} />
           </SwitchWrapper>
           <ResultWrapper>

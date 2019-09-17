@@ -7,7 +7,6 @@ import PersonDetail from './pages/Person/Detail';
 import PersonEdit from './pages/Person/Edit';
 import PersonList from './pages/Person/List';
 
-
 const Routes = createAppContainer(
   createStackNavigator(
     {
@@ -15,7 +14,6 @@ const Routes = createAppContainer(
       PersonDetail,
       PersonCreate,
       PersonEdit,
-      
     },
     {
       headerLayoutPreset: 'center',

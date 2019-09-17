@@ -43,13 +43,15 @@ export default function PersonCreate({navigation}) {
 
   async function handleSubmit(values) {
     const ValidationMessages = fieldsValidate(resultData, values);
-
-    if (ValidationMessages) {
+    console.tron.log(values);
+    if (ValidationMessages.length > 0) {
+      console.tron.log('caiu no if');
       console.tron.log(ValidationMessages);
       ValidationMessages.forEach(message => {
         Alert.alert('AVISO', message);
       });
     } else {
+      console.tron.log('caiu no else');
       await database.ref(`person/${values.matricula}`).set({
         nome: values.nome,
         nascimento: values.nascimento,
@@ -77,7 +79,21 @@ export default function PersonCreate({navigation}) {
       </Container>
       <Formik
         validationSchema={schema}
-        onSubmit={values => handleSubmit(values)}>
+        onSubmit={values => handleSubmit(values)}
+        initialValues={{
+          nome: '',
+          nascimento: '',
+          municipioNascimento: '',
+          estadoNascimento: '',
+          matricula: '',
+          sexo: '',
+          cargo: '',
+          lotacao: '',
+          estadoCivil: '',
+          celular: '',
+          telefone: '',
+          email: '',
+        }}>
         {props => (
           <Wrapper>
             <KeyboardAvoidingView behavior="padding">
@@ -111,7 +127,7 @@ export default function PersonCreate({navigation}) {
                 <Picker
                   selectedValue={props.values.sexo}
                   onValueChange={(itemValue, itemIndex) =>
-                    props.setFieldValue('genero', itemValue)
+                    props.setFieldValue('sexo', itemValue)
                   }>
                   <Picker.Item label="Masculino" value="M" />
                   <Picker.Item label="Feminino" value="F" />
@@ -122,7 +138,7 @@ export default function PersonCreate({navigation}) {
                 onChangeText={props.handleChange('municipioNascimento')}
                 onBlur={props.handleBlur('municipioNascimento')}
                 value={props.values.municipioNascimento}
-                placeholder="Municipio Nascimento"
+                placeholder="Municipio Nasc."
                 icon="child-friendly"
               />
 
@@ -130,12 +146,13 @@ export default function PersonCreate({navigation}) {
                 onChangeText={props.handleChange('estadoNascimento')}
                 onBlur={props.handleBlur('estadoNascimento')}
                 value={props.values.estadoNascimento}
-                placeholder="Estado Nascimento"
+                placeholder="Estado Nasc."
                 icon="location-city"
               />
 
               <RowWrapper>
                 <Picker
+                  selectedValue={props.values.estadoCivil}
                   onValueChange={(itemValue, itemIndex) =>
                     props.setFieldValue('estadoCivil', itemValue)
                   }
@@ -168,7 +185,7 @@ export default function PersonCreate({navigation}) {
                   onChangeText={props.handleChange('celular')}
                   onBlur={props.handleBlur('celular')}
                   value={props.values.celular}
-                  placeholder="celular"
+                  placeholder="Cel"
                   icon="smartphone"
                 />
 
@@ -176,7 +193,7 @@ export default function PersonCreate({navigation}) {
                   onChangeText={props.handleChange('telefone')}
                   onBlur={props.handleBlur('telefone')}
                   value={props.values.telefone}
-                  placeholder="Telefone"
+                  placeholder="Tel"
                   icon="local-phone"
                 />
               </RowWrapper>
@@ -203,5 +220,5 @@ export default function PersonCreate({navigation}) {
 }
 
 PersonCreate.navigationOptions = {
-  title: 'Dados Pessoais',
+  title: 'Cadastrar Usuário',
 };

@@ -16,7 +16,7 @@ export const Input = styled.TextInput.attrs({
   flex: 1;
   font-size: 15px;
   margin-left: 10px;
-  color: #aaa;
+  color: #1f1e1c;
   font-family: 'Roboto';
 `;
 

@@ -88,12 +88,6 @@ export default function PersonDetail({navigation}) {
         </Profile>
         <IconWrapper>
           <Icon
-            name="add"
-            color="#6EB7F8"
-            size={36}
-            onPress={() => handleAdd()}
-          />
-          <Icon
             name="delete"
             color="#6EB7F8"
             size={36}
