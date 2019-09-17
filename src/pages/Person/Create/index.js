@@ -52,7 +52,6 @@ export default function PersonCreate({navigation}) {
         Alert.alert('AVISO', message);
       });
     } else {
-      console.tron.log('caiu no else');
       await database.ref(`person/${values.matricula}`).set({
         nome: values.nome,
         nascimento: values.nascimento,

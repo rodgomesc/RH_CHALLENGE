@@ -8,11 +8,22 @@ Essa é a primeira release do **Siedos RH**, caso encontre algum erro ou, tenha 
 
 # Ferramentas e Recursos
 
+## Tecnologias Utilizadas
+
+- React-Native
+- Styled Components
+- Eslint + Prettier
+- Firebase
+- Formik
+- Vector Icons
+- React-Navigation
+- Yup
+
 ...
 
 # Baixar ultima versão do aplicativo
 
-O arquivo de instalação pode ser baixado diretamente por [aqui](https://gitlab.com/rodgomesc/rh_challenge/-/releases).
+O arquivo de instalação pode ser baixado diretamente através [deste link](https://gitlab.com/rodgomesc/rh_challenge/-/releases).
 
 # Compilar & executar
 
@@ -30,17 +41,4 @@ react-native run-android
 
 # Screenshots
 
-![Create.png](https://i.loli.net/2019/09/17/MTKZIYFPpOy2zwm.png) | ![Edit.png](https://i.loli.net/2019/09/17/VNsmSwbrJHMqG6L.png)
-![Detail.png](https://i.loli.net/2019/09/17/W9Pgiu7nbDyz8fE.png)
-![List.png](https://i.loli.net/2019/09/17/PXOBeEqD2THCzt6.png)
-
-# Tecnologias Utilizadas
-
-- React-Native
-- Styled Components
-- Eslint + Prettier
-- Firebase
-- Formik
-- Vector Icons
-- React-Navigation
-- Yup
+![Create.png](https://i.loli.net/2019/09/17/MTKZIYFPpOy2zwm.png) | ![Edit.png](https://i.loli.net/2019/09/17/VNsmSwbrJHMqG6L.png) | ![Detail.png](https://i.loli.net/2019/09/17/W9Pgiu7nbDyz8fE.png) | ![List.png](https://i.loli.net/2019/09/17/PXOBeEqD2THCzt6.png)

@@ -12,7 +12,7 @@ export const Wrapper = styled.ScrollView`
   margin: 20px 15px 0;
   padding: 10px 10px 0;
   border-radius: 4px;
-  height: 620;
+  height: 540;
   width: 380;
   align-self: center;
 `;
