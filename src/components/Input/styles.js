@@ -1,5 +1,5 @@
 import {Card} from 'native-base';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 export const Container = styled(Card)`
   flex: 1;
@@ -10,9 +10,7 @@ export const Container = styled(Card)`
   align-items: center;
 `;
 
-export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#C4C4C4',
-})`
+export const Input = styled.TextInput`
   flex: 1;
   font-size: 15px;
   margin-left: 10px;

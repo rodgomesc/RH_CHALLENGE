@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import {Dimensions} from 'react-native';
 
 export const Container = styled.View`
   position: absolute;
   font-weight: bold;
-  width: 359px;
-  margin: 15px 15px 15px 15px;
+  margin-top: 10;
+  width: ${Dimensions.get('window').width - 30};
   padding-left: 15;
   height: 54px;
   border-radius: 4px;

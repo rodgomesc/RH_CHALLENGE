@@ -11,7 +11,7 @@ export default function LinearButton({title, ...rest}) {
           colors={['#95ADE8', '#6EB7F8']}
           style={{
             height: 54,
-            width: 354,
+            width: 372,
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: 4,

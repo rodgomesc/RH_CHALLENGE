@@ -5,9 +5,9 @@ import {Container, Input, CText} from './styles';
 export default function CustomInput({title, icon, placeholder, ...rest}) {
   return (
     <Container>
-      <Icon name={icon} size={20} color="#8c8c8c" />
-      <CText>{placeholder}</CText>
-      <Input {...rest} />
+      <Icon testID="icon" name={icon} size={20} color="#8c8c8c" />
+      <CText placeholderTextColor="#C4C4C4">{placeholder}</CText>
+      <Input {...rest} testID="input" />
     </Container>
   );
 }
