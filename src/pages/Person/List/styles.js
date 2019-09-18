@@ -9,18 +9,6 @@ export const Container = styled.View`
   background: #eee;
 `;
 
-export const SearchBar = styled.TextInput`
-  position: absolute;
-  background: #fff;
-  font-weight: bold;
-  height: 46;
-  width: 342px;
-  margin: 30px 15px 15px 15px;
-  border-radius: 3px;
-  padding-left: 15px;
-  align-self: center;
-`;
-
 export const Wrapper = styled(Card)`
   flex-direction: column;
   background: #fff;
@@ -148,7 +136,7 @@ export const PersonInfoRight = styled.View`
 
 export const Separator = styled.View`
   border-bottom-width: 1;
-  border-color: #000;
+  border-color: rgba(0, 0, 0, 0.1);
 `;
 
 export const ActivityIndicator = styled(BallIndicator).attrs({

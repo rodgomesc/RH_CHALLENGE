@@ -100,30 +100,26 @@ export default function PersonCreate({navigation}) {
             keyboardVerticalOffset={-200}
             behavior="padding">
             <Wrapper>
-              {props.errors.nome && <Error>{props.errors.nome}</Error>}
-              {props.errors.matricula && (
-                <Error>{props.errors.matricula}</Error>
-              )}
-              {props.errors.lotacao && <Error>{props.errors.lotacao}</Error>}
-              {props.errors.cargo && <Error>{props.errors.cargo}</Error>}
-              {props.errors.celular && <Error>{props.errors.celular}</Error>}
-              {props.errors.telefone && <Error>{props.errors.telefone}</Error>}
-              {props.errors.email && <Error>{props.errors.email}</Error>}
-
               <Input
                 onChangeText={props.handleChange('matricula')}
-                onBlur={props.handleBlur('matricula')}
+                onBlur={() => props.setFieldTouched('matricula')}
                 value={props.values.matricula}
                 placeholder="matricula"
                 icon="list"
               />
+              {props.touched.matricula && props.errors.matricula && (
+                <Error>{props.errors.matricula}</Error>
+              )}
               <Input
                 onChangeText={props.handleChange('nome')}
-                onBlur={props.handleBlur('nome')}
+                onBlur={() => props.setFieldTouched('nome')}
                 value={props.values.nome}
                 placeholder="nome"
                 icon="person-pin"
               />
+              {props.touched.nome && props.errors.nome && (
+                <Error>{props.errors.nome}</Error>
+              )}
 
               <RowWrapper>
                 <DatePicker placeholder="Nascimento" />
@@ -168,37 +164,49 @@ export default function PersonCreate({navigation}) {
 
               <Input
                 onChangeText={props.handleChange('cargo')}
-                onBlur={props.handleBlur('cargo')}
+                onBlur={() => props.setFieldTouched('cargo')}
                 value={props.values.cargo}
                 placeholder="Cargo"
                 icon="work"
               />
+              {props.touched.cargo && props.errors.cargo && (
+                <Error>{props.errors.cargo}</Error>
+              )}
               <Input
                 onChangeText={props.handleChange('lotacao')}
-                onBlur={props.handleBlur('lotacao')}
+                onBlur={() => props.setFieldTouched('lotacao')}
                 value={props.values.lotacao}
                 placeholder="Lotação"
                 icon="directions-bus"
               />
+              {props.touched.lotacao && props.errors.lotacao && (
+                <Error>{props.errors.lotacao}</Error>
+              )}
 
               <Separator />
 
               <RowWrapper>
                 <Input
                   onChangeText={props.handleChange('celular')}
-                  onBlur={props.handleBlur('celular')}
+                  onBlur={() => props.setFieldTouched('celular')}
                   value={props.values.celular}
                   placeholder="Cel"
                   icon="smartphone"
                 />
+                {props.touched.celular && props.errors.celular && (
+                  <Error>{props.errors.celular}</Error>
+                )}
 
                 <Input
                   onChangeText={props.handleChange('telefone')}
                   onBlur={props.handleBlur('telefone')}
-                  value={props.values.telefone}
+                  value={() => props.setFieldTouched('telefone')}
                   placeholder="Tel"
                   icon="local-phone"
                 />
+                {props.touched.telefone && props.errors.telefone && (
+                  <Error>{props.errors.telefone}</Error>
+                )}
               </RowWrapper>
               <Input
                 onChangeText={props.handleChange('email')}
@@ -207,6 +215,9 @@ export default function PersonCreate({navigation}) {
                 placeholder="E-mail"
                 icon="mail"
               />
+              {props.touched.email && props.errors.email && (
+                <Error>{props.errors.email}</Error>
+              )}
               <ButtonContainer>
                 <LinearButton
                   type="button"

@@ -8,11 +8,9 @@ export const Container = styled.View`
 export const Wrapper = styled.ScrollView`
   flex-direction: column;
   background: #fff;
-  margin: 20px 15px 0;
   padding: 10px 10px 0;
   border-radius: 4px;
-
-  align-self: center;
+  margin: 0 8px;
 `;
 
 export const RowWrapper = styled.View`
@@ -20,16 +18,14 @@ export const RowWrapper = styled.View`
 `;
 
 export const Error = styled.Text`
-  width: 360px;
-  font-size: 14;
+  font-size: 13;
   font-weight: bold;
   color: #fff;
   background: #d1243e;
-  margin: 4px;
   padding: 4px;
-  min-height: 15;
-  border-radius: 3;
-  align-self: center;
+  min-height: 13;
+  border-radius: 2;
+  align-self: stretch;
   text-align: center;
 `;
 

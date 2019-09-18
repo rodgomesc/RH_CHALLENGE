@@ -20,9 +20,6 @@ import profileAvatar from '../../../assets/images/gendalf.jpg';
 export default function PersonDetail({navigation}) {
   const data = navigation.getParam('data');
 
-  function handleAdd() {
-    navigation.navigate('PersonCreate');
-  }
   function handleEdit() {
     navigation.navigate('PersonEdit', {data});
   }

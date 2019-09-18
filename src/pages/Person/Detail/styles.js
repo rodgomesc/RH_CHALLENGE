@@ -52,7 +52,7 @@ export const Row = styled.View`
 `;
 
 export const Separator = styled.View`
-  margin: 18px 0 0;
+  margin: 18px 0 10px;
   border-bottom-width: 1;
   border-color: rgb(204, 204, 204);
 `;
