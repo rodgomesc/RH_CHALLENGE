@@ -21,6 +21,12 @@ Essa é a primeira release do **Siedos RH**, caso encontre algum erro ou, tenha 
 
 ...
 
+### relação de requisitos validados
+
+- [x] campo de pesquisa e três filtros (sexo, lotação e cargo).
+- [x] Matricula única.
+- [x] Pessoas cadastradas em ordem crescente pelo nome.
+
 # Baixar ultima versão do aplicativo
 
 O arquivo de instalação pode ser baixado diretamente através [deste link](https://gitlab.com/rodgomesc/rh_challenge/-/releases).

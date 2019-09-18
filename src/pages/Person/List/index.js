@@ -102,6 +102,14 @@ export default function PersonList({navigation}) {
     }
   }
 
+  function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+      const x = a[key];
+      const y = b[key];
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+  }
+
   return (
     <>
       <Container>
@@ -198,7 +206,7 @@ export default function PersonList({navigation}) {
             <ActivityIndicator />
           ) : (
             <Persons
-              data={resultData}
+              data={sortByKey(resultData, 'nome')}
               keyExtractor={person => String(person.matricula)}
               renderItem={({item}) => (
                 <PersonItem onPress={() => handleClick(item)}>
