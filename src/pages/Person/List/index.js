@@ -27,6 +27,10 @@ import {
   Picker,
   Separator,
   ActivityIndicator,
+  ButtonAdd,
+  ButtonText,
+  SwitchContainer,
+  SwitchText,
 } from './styles';
 
 export default function PersonList({navigation}) {
@@ -177,14 +181,14 @@ export default function PersonList({navigation}) {
             <Separator />
           </PickerWrapper>
           <SwitchWrapper>
-            <Icon
-              name="person-add"
-              color="#95ADE8"
-              size={36}
-              onPress={() => navigation.navigate('PersonCreate')}
-            />
-
-            <Switch onValueChange={handleFilter} value={isToggled} />
+            <ButtonAdd onPress={() => navigation.navigate('PersonCreate')}>
+              <Icon name="person-add" color="#fff" size={36} />
+              <ButtonText>Add Usuario</ButtonText>
+            </ButtonAdd>
+            <SwitchContainer>
+              <SwitchText>Filtrar</SwitchText>
+              <Switch onValueChange={handleFilter} value={isToggled} />
+            </SwitchContainer>
           </SwitchWrapper>
           <ResultWrapper>
             <ResultCont>{resultData.length}</ResultCont>

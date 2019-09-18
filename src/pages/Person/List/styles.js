@@ -30,19 +30,12 @@ export const Switch = styled(CSwitch).attrs({
   thumbColor: '#95ADE8',
 })``;
 
-export const SwitchText = styled.Text`
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 14;
-  color: #747474;
-  text-transform: uppercase;
-`;
-
 export const Picker = styled(BasePicker)`
   height: 40;
   background: white;
   color: #747474;
   margin-bottom: 3;
+  border: solid 1px;
 `;
 
 export const PickerWrapper = styled.View`
@@ -142,3 +135,30 @@ export const Separator = styled.View`
 export const ActivityIndicator = styled(BallIndicator).attrs({
   color: '#7b7b7b',
 })``;
+
+export const ButtonAdd = styled.TouchableOpacity`
+  border-radius: 3px;
+  flex-direction: row;
+  align-items: center;
+  background: #95ade8;
+  padding: 0 4px;
+`;
+
+export const ButtonText = styled.Text`
+  font-weight: bold;
+  color: white;
+  margin-left: 2px;
+`;
+
+export const SwitchContainer = styled.View`
+  border-radius: 3px;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  padding: 0 4px;
+`;
+export const SwitchText = styled.Text`
+  font-weight: bold;
+  color: #9c9c9c;
+  margin-right: 2px;
+`;
