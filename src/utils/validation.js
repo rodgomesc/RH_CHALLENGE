@@ -20,6 +20,7 @@ export function fieldsValidate(resultData, fields) {
 
 export function validateCargoLotacao(resultData, fields) {
   const data = [];
+
   resultData.forEach(person => {
     if (
       person.cargo.toLowerCase() === fields.cargo.toLowerCase() &&

@@ -34,7 +34,7 @@ Essa é a primeira release do **Siedos RH**, caso encontre algum erro ou, tenha 
 - [x] O usuário não poderá cadastrar mais um contato com o mesmo telefone, celular ou e-mail.
 - [x] e-mail deverá ser único, ou seja, não deverá existir duas pessoas com o mesmo e-mail.
 - [x] Os três campos são obrigatórios para o contato.
-- [-] Cada pessoa poderá ter nenhum ou mais de um desses campos.
+- [ ] Cada pessoa poderá ter nenhum ou mais de um desses campos.
 - [x] melhorar o layout da nossa ferramenta;
 
 # Baixar ultima versão do aplicativo

@@ -14,6 +14,7 @@ import {Separator} from '../Detail/styles';
 
 export default function PersonEdit({navigation}) {
   // receive all fields values
+
   const {
     nome,
     nascimento,
@@ -54,7 +55,6 @@ export default function PersonEdit({navigation}) {
       telefone: values.telefone,
       email: values.email,
     });
-
     toast.show('Dados salvos com sucesso', toast.LONG);
     navigation.navigate('PersonList');
   }
@@ -141,10 +141,11 @@ export default function PersonEdit({navigation}) {
                   onValueChange={(itemValue, itemIndex) =>
                     props.setFieldValue('estadoCivil', itemValue)
                   }
+                  onBlur={props.handleBlur('estadoCivil')}
                   icon="wc">
-                  <Picker.Item label="Solteiro" value="Solteiro" />
-                  <Picker.Item label="Casado" value="Casado" />
-                  <Picker.Item label="Divorciado" value="Divorciado" />
+                  <Picker.Item label="Solteiro(a)" value="Solteiro" />
+                  <Picker.Item label="Casado(a)" value="Casado" />
+                  <Picker.Item label="Divorciado(a)" value="Divorciado" />
                 </Picker>
               </RowWrapper>
 
@@ -185,8 +186,8 @@ export default function PersonEdit({navigation}) {
 
                 <Input
                   onChangeText={props.handleChange('telefone')}
-                  onBlur={props.handleBlur('telefone')}
-                  value={() => props.setFieldTouched('telefone')}
+                  onBlur={() => props.setFieldTouched('telefone')}
+                  value={props.values.telefone}
                   placeholder="Tel"
                   icon="local-phone"
                 />
