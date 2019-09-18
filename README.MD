@@ -24,8 +24,18 @@ Essa é a primeira release do **Siedos RH**, caso encontre algum erro ou, tenha 
 ### relação de requisitos validados
 
 - [x] campo de pesquisa e três filtros (sexo, lotação e cargo).
-- [x] Matricula única.
-- [x] Pessoas cadastradas em ordem crescente pelo nome.
+- [x] Listar Pessoas cadastradas em ordem crescente pelo nome.
+- [x] Campos a conter na Listagem(Nome, Matricula, Data de nascimento, Sexo, Lotação, Cargo)
+- [x] Possibilidade de visualizar, editar e remover.
+- [x] Matricula (obrigatório), Nome (obrigatório), Data de nascimento, Município de nascimento, Estado de nascimento, Estado civil (Solteiro (a), Casado (a), Divorciado (a)), Sexo (Masculino, Feminino),Lotação de trabalho (obrigatório, Cargo (obrigatório)
+- [x] Não poderá haver duas pessoas com o mesmo cargo em uma mesma lotação;
+- [x] Matricula deve ser única para todos os cadastros
+- [x] Inclusao de campos Telefone, Celular e E-mail.
+- [x] O usuário não poderá cadastrar mais um contato com o mesmo telefone, celular ou e-mail.
+- [x] e-mail deverá ser único, ou seja, não deverá existir duas pessoas com o mesmo e-mail.
+- [x] Os três campos são obrigatórios para o contato.
+- [] Cada pessoa poderá ter nenhum ou mais de um desses campos.
+- [x] melhorar o layout da nossa ferramenta;
 
 # Baixar ultima versão do aplicativo
 
