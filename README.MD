@@ -4,7 +4,7 @@
 
 # Estágio Inicial
 
-Essa é a primeira release do **APP RH**, caso encontre algum erro ou, tenha sugoestões para melhorar seu funcionamento, entre em contato com nossa equipe, tentaremos responder seu chamado o mais rápido possivel.
+Esse app foi feito como desafio para uma entrevista dev mobile, sinta-se a vontade para modificar e usa-lo como quiser, mas mantenha os créditos, obrigado!
 
 # Ferramentas e Recursos
 
