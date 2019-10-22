@@ -2,6 +2,9 @@
 
 ![build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![version](https://img.shields.io/badge/version-1.0.0-9cf.svg) ![built by](https://img.shields.io/badge/built_by-Rodrigo_Gomes-5b2afb.svg)
 
+
+[![Assista o Vídeo](https://i.imgur.com/VePxg5e.png)](https://www.youtube.com/watch?v=rpwlUkAG1bc "RH Challenge")
+
 # Estágio Inicial
 
 Esse app foi feito como desafio para uma entrevista dev mobile, sinta-se a vontade para modificar e usa-lo como quiser, mas mantenha os créditos, obrigado!
