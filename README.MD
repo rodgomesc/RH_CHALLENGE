@@ -1,10 +1,10 @@
-## Projeto: Siedos RH
+## Projeto: APP RH
 
 ![build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![version](https://img.shields.io/badge/version-1.0.0-9cf.svg) ![built by](https://img.shields.io/badge/built_by-Rodrigo_Gomes-5b2afb.svg)
 
 # Estágio Inicial
 
-Essa é a primeira release do **Siedos RH**, caso encontre algum erro ou, tenha sugoestões para melhorar seu funcionamento, entre em contato com nossa equipe, tentaremos responder seu chamado o mais rápido possivel.
+Essa é a primeira release do **APP RH**, caso encontre algum erro ou, tenha sugoestões para melhorar seu funcionamento, entre em contato com nossa equipe, tentaremos responder seu chamado o mais rápido possivel.
 
 # Ferramentas e Recursos
 
