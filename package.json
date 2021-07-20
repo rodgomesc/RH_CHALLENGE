@@ -14,7 +14,7 @@
     "formik": "^1.5.8",
     "native-base": "^2.13.8",
     "react": "16.8.6",
-    "react-native": "0.60.5",
+    "react-native": "0.62.3",
     "react-native-base-switch": "^0.0.6",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-indicators": "^0.13.0",
